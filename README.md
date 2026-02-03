@@ -1,40 +1,39 @@
-# **Synapse**
+# **VertexVita**
 
-Welcome to **Synapse**, a decentralized AI-powered healthcare platform built on **Polygon** — putting patients back in control of their medical data with encrypted *Intelligent Health NFTs*, real-time AI diagnostics, and verifiable sharing with doctors.
+Welcome to **VertexVita**, a decentralized AI-powered healthcare platform built on **Linera** — putting patients back in control of their medical data with encrypted *Intelligent Health NFTs*, real-time AI diagnostics, and verifiable sharing with doctors.
 
-**Repository:** [https://github.com/Wadill/Synapse](https://github.com/Wadill/Synapse)
-**Live Demo:** https://synapse-puce-iota.vercel.app/
-
+**Repository:** [https://github.com/Wadill/VertexVita](https://github.com/Wadill/VertexVita)  
+**Live Demo:** https://vertexvita.vercel.app/  (update link as needed)
 
 ## LIVE on MAINNET! Contract: 0x1F0441f4aD7ddAf44187F780afc6AacdC270Bba7 
 ---
 
 ## **What It Does**
 
-Synapse lets patients own their lifetime medical records as **updatable, encrypted Intelligent Health NFTs** on Polygon.
+VertexVita lets patients own their lifetime medical records as **updatable, encrypted Intelligent Health NFTs** on Linera.
 
 1. Upload records
 2. AI analyzes privately
 3. Receive instant diagnostics & personalized insights
 4. Share securely with doctors or emergency responders
 
-All at **sub-cent fees** and **sub-second finality**.
+All at **sub-cent fees** and **real-time finality** thanks to Linera's microchain architecture.
 
 ---
 
 ## **The Problem It Solves**
 
-Centralized healthcare systems:
-❌ leak data
-❌ lock patients out
+Centralized healthcare systems:  
+❌ leak data  
+❌ lock patients out  
 ❌ cost too much
 
-Synapse fixes this with **Polygon’s zkEVM**, **Polygon ID**, and **Lit Protocol** to deliver:
+VertexVita fixes this with **Linera’s microchains**, **user-owned chains**, and **Lit Protocol** to deliver:
 
 * True data ownership
 * HIPAA-grade privacy
 * Instant, global interoperability
-* Consumer-scale UX
+* Consumer-scale UX with real-time performance
 
 ---
 
@@ -43,7 +42,7 @@ Synapse fixes this with **Polygon’s zkEVM**, **Polygon ID**, and **Lit Protoco
 * **Encrypted medical records** on IPFS + Lit Protocol
 * **Intelligent Health NFTs (ERC-721A)** representing lifetime medical records
 * **Real-time AI diagnostics** (skin, ECG, blood panels) via off-chain AI workers
-* **Polygon ID** verified doctor credentials & patient identity
+* **Verifiable doctor credentials & patient identity** (using decentralized identity solutions)
 * **Emergency QR access** (“break-glass” decryption)
 * **The Graph-powered dashboard** with rich visualizations
 * **Wearables sync** (Apple Health, Google Fit, Oura support coming)
@@ -59,14 +58,13 @@ Synapse fixes this with **Polygon’s zkEVM**, **Polygon ID**, and **Lit Protoco
 
 **Blockchain:**
 
-* Polygon zkEVM (Amoy → Mainnet)
-* Polygon CDK
-* Polygon ID
+* Linera (Mainnet)
+* Linera microchains for per-user scalability
 
 **Encryption & Identity:**
 
 * Lit Protocol
-* Polygon ID
+* Decentralized identity tools
 
 **Storage:**
 
@@ -76,7 +74,7 @@ Synapse fixes this with **Polygon’s zkEVM**, **Polygon ID**, and **Lit Protoco
 
 **Smart Contracts:**
 
-* Solidity, Hardhat
+* Solidity, Hardhat (or Rust/Wasm where applicable for Linera compatibility)
 * ERC-721A
 
 **Wallet & Indexing:**
@@ -93,13 +91,13 @@ Synapse fixes this with **Polygon’s zkEVM**, **Polygon ID**, and **Lit Protoco
 
 ## **How We Built It**
 
-* Started with Polygon Buildathon template
+* Started with a scalable Web3 template adapted for Linera
 * Deployed **Intelligent Health NFT** + access control contracts
 * Built encrypted upload flow → IPFS → Lit-encrypted CID → on-chain
 * Created off-chain **AI workers** listening for events, running inference, writing results
-* Added **Polygon ID** for verifiable credentials without KYC
+* Integrated decentralized identity for verifiable credentials without KYC
 * Indexed all user data with **The Graph** for instant dashboards
-* Deployed on Amoy → ready for mainnet
+* Deployed on Linera Testnet → ready for mainnet
 
 ---
 
@@ -116,36 +114,36 @@ Synapse fixes this with **Polygon’s zkEVM**, **Polygon ID**, and **Lit Protoco
 * Full AI engine (3 medical models)
 * Doctor verification marketplace
 * Apple Health / Oura sync
-* AggLayer cross-chain health passports
+* Cross-chain health passports via Linera messaging
 
 ### **Wave 3 – Category Leader**
 
 * Insurance & clinical trials marketplace
 * Hospital integrations (India/LATAM pilot)
-* Synapse Predict (long-term risk scoring)
-* `$SYNAPSE` token + DAO
+* VertexVita Predict (long-term risk scoring)
+* `$VITA` token + DAO
 
 ### **Wave 4 – Global Standard**
 
 * 1M+ users
 * Major wearable & insurer partnerships
-* The Web3 EHR layer
+* The Web3 EHR layer on real-time blockchain
 
 ---
 
 ## **Challenges We Ran Into**
 
-* Syncing off-chain AI inference latency with Polygon’s block speed
-* Keeping gas costs **< $0.01** for frequent updates
-* Achieving real **HIPAA-grade privacy** on a public chain (solved via Lit + Polygon ID)
+* Syncing off-chain AI inference latency with Linera’s real-time execution
+* Keeping gas costs **< $0.01** for frequent updates on microchains
+* Achieving real **HIPAA-grade privacy** on a public decentralized network (solved via Lit + identity tools)
 
 ---
 
 ## **What We Learned**
 
-Polygon is currently one of the fastest, cheapest, and most scalable chains for real consumer health applications.
+Linera is one of the fastest, lowest-latency, and most scalable platforms for real consumer health applications thanks to its microchain design and elastic validators.
 
-* Polygon ID + Lit Protocol = genuine medical privacy
+* Lit Protocol + decentralized identity = genuine medical privacy
 * Architecting with fundraising in mind leads to far better UX and scalability
 
 ---
@@ -153,46 +151,11 @@ Polygon is currently one of the fastest, cheapest, and most scalable chains for 
 ## **Installation**
 
 ```bash
-git clone https://github.com/Wadill/Synapse.git
-cd Synapse
+git clone https://github.com/Wadill/VertexVita.git
+cd VertexVita
 npm install
 
 cp .env.example .env.local
 # Add your WalletConnect ID & private key
 
 npm run dev
-```
-
----
-
-## **Contributing**
-
-Contributions welcome!
-
-1. Fork
-2. Create a branch
-3. Submit a PR
-
-For major changes, open an issue first.
-
----
-
-## **License**
-
-MIT License — see `LICENSE`
-
----
-
-## **Acknowledgments**
-
-* Polygon Labs & the Polygon ecosystem
-* Lit Protocol team
-* Polygon ID team
-* Buildathon judges
-* Global Web3 health community
-
----
-
-# **Your health. Your data. Your Synapse.**
-
----
