@@ -1,13 +1,15 @@
 "use client";
-import { useState } from "react";
+import { useState } from "react"; // ← actually not used here anymore, can remove
 import { motion } from "framer-motion";
+import { Dispatch, SetStateAction } from "react";
 
 interface ShareModalProps {
   isOpen: boolean;
   onClose: () => void;
   onShare: (recipient: string) => void;
   recipient: string;
-  setRecipient: (recipient: string) => void;
+  setRecipient: Dispatch<SetStateAction<string>>;
+  extraInfo?: string;
 }
 
 export default function ShareModal({
@@ -16,6 +18,7 @@ export default function ShareModal({
   onShare,
   recipient,
   setRecipient,
+  extraInfo,
 }: ShareModalProps) {
   if (!isOpen) return null;
 
@@ -32,6 +35,13 @@ export default function ShareModal({
         className="bg-white p-6 rounded-xl shadow-xl w-full max-w-md"
       >
         <h2 className="text-2xl font-semibold text-indigo-700 mb-4">Share Record</h2>
+
+        {extraInfo && (
+          <div className="mb-4 text-sm text-gray-600 bg-gray-50 p-3 rounded-lg">
+            {extraInfo}
+          </div>
+        )}
+
         <input
           type="text"
           value={recipient}
@@ -39,6 +49,7 @@ export default function ShareModal({
           placeholder="Recipient (e.g., Dr. Smith)"
           className="w-full p-2 border border-gray-300 rounded-lg mb-4"
         />
+
         <div className="flex justify-end space-x-4">
           <button
             onClick={onClose}

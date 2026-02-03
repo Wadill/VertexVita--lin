@@ -4,22 +4,31 @@ import ShareModal from "@/components/ShareModal";
 import Navbar from "@/components/Navbar";
 import { motion } from "framer-motion";
 
+interface MarketplaceRequest {
+  id: number;
+  partner: string;
+  type: string;
+  requirements: string[];
+  reward: string;
+  needsSubset: boolean;
+}
+
 export default function Share() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [recipient, setRecipient] = useState("");
-  const [activeTab, setActiveTab] = useState("direct"); // New: direct vs marketplace
-  const [selectedRequest, setSelectedRequest] = useState<any>(null);
+  const [activeTab, setActiveTab] = useState<"direct" | "marketplace">("direct");
+  const [selectedRequest, setSelectedRequest] = useState<MarketplaceRequest | null>(null);
   const [zkProofResult, setZkProofResult] = useState<string | null>(null);
 
   // Mock marketplace requests
-  const marketplaceRequests = [
+  const marketplaceRequests: MarketplaceRequest[] = [
     {
       id: 1,
       partner: "HealthInsure Co.",
       type: "Insurance Quote",
       requirements: ["BMI < 30", "Age 18-65", "No diabetes history"],
       reward: "50 $SYNAPSE",
-      needsSubset: true, // Requires encrypted blood panel subset
+      needsSubset: true,
     },
     {
       id: 2,
@@ -31,7 +40,7 @@ export default function Share() {
     },
   ];
 
-  // Mock patient attributes (in real: derived from AI diagnostics or records)
+  // Mock patient attributes (in real app: derived from records / AI diagnostics)
   const patientAttributes = {
     bmi: 28,
     age: 45,
@@ -39,8 +48,7 @@ export default function Share() {
     systolicBP: 135,
   };
 
-  const generateMockZKProof = (requirements: string[]) => {
-    // Simulate zk proof: check if patient meets all
+  const generateMockZKProof = (requirements: string[]): boolean => {
     const meetsAll = requirements.every((req) => {
       if (req.includes("BMI < 30")) return patientAttributes.bmi < 30;
       if (req.includes("Age 18-65")) return patientAttributes.age >= 18 && patientAttributes.age <= 65;
@@ -54,7 +62,7 @@ export default function Share() {
     return meetsAll;
   };
 
-  const handleMarketplaceShare = (request: any) => {
+  const handleMarketplaceShare = (request: MarketplaceRequest) => {
     const eligible = generateMockZKProof(request.requirements);
     if (eligible) {
       setSelectedRequest(request);
@@ -66,7 +74,7 @@ export default function Share() {
   const handleShare = () => {
     console.log("Sharing with:", recipient, "Request:", selectedRequest);
     alert(`Shared successfully! Rewarded ${selectedRequest?.reward || "0 $SYNAPSE"}`);
-    // In real: trigger on-chain reward mint
+    // TODO: In real app → trigger on-chain transaction / reward mint
     setIsModalOpen(false);
     setRecipient("");
     setSelectedRequest(null);
@@ -76,6 +84,7 @@ export default function Share() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-teal-50 via-blue-100 to-indigo-50">
       <Navbar />
+
       <div className="container mx-auto px-4 py-12">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
@@ -132,8 +141,13 @@ export default function Share() {
                 >
                   Prove Eligibility (zk)
                 </button>
+
                 {zkProofResult && selectedRequest?.id === req.id && (
-                  <p className={`mt-4 font-bold ${zkProofResult.includes("valid") ? "text-green-600" : "text-red-600"}`}>
+                  <p
+                    className={`mt-4 font-bold ${
+                      zkProofResult.includes("valid") ? "text-green-600" : "text-red-600"
+                    }`}
+                  >
                     {zkProofResult}
                   </p>
                 )}
@@ -151,13 +165,18 @@ export default function Share() {
           onShare={handleShare}
           recipient={recipient}
           setRecipient={setRecipient}
-          extraInfo={selectedRequest ? `For: ${selectedRequest.type} (Reward: ${selectedRequest.reward})` : undefined}
+          extraInfo={
+            selectedRequest
+              ? `For: ${selectedRequest.type} (Reward: ${selectedRequest.reward})`
+              : undefined
+          }
         />
 
-        {/* Existing History & Analytics sections */}
+        {/* Sharing History section – placeholder */}
         <motion.section className="mt-10 bg-white p-6 rounded-xl shadow-xl border border-indigo-100">
           <h2 className="text-2xl font-semibold text-indigo-700 mb-4">Sharing History</h2>
-          {/* ... keep existing */}
+          <p className="text-gray-600">No shares yet.</p>
+          {/* Add real history list here later */}
         </motion.section>
       </div>
     </div>

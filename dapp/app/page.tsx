@@ -15,7 +15,7 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           className="text-5xl md:text-6xl font-bold text-gray-900 mb-4"
         >
-          Welcome to Synapse
+          Welcome to AIHeal
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
@@ -75,7 +75,7 @@ export default function Home() {
           >
             <h2 className="text-2xl font-semibold text-blue-600 mb-4">Challenges I Ran Into</h2>
             <p className="text-gray-700">
-              Integrating 0G's modular services (Storage, Compute, DA) with Next.js proved complex due to limited documentation. Ensuring secure encryption for medical data on 0G Storage required extensive testing. Balancing AI inference speed on 0G Compute with cost efficiency was another hurdle.
+              Integrating 0G&apos;s modular services (Storage, Compute, DA) with Next.js proved complex due to limited documentation. Ensuring secure encryption for medical data on 0G Storage required extensive testing. Balancing AI inference speed on 0G Compute with cost efficiency was another hurdle.
             </p>
           </motion.div>
 
@@ -112,7 +112,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white text-center py-6">
-        <p>&copy; {new Date().getFullYear()} Synapse </p>
+        <p>&copy; {new Date().getFullYear()} AIHeal </p>
         
       </footer>
     </div>
