@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AIHeal - Decentralized Healthcare",
+  title: "VertexVita - Decentralized Healthcare",
   description: "AI-powered healthcare management on a decentralized platform",
 };
 

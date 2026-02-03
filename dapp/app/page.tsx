@@ -15,7 +15,7 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           className="text-5xl md:text-6xl font-bold text-gray-900 mb-4"
         >
-          Welcome to AIHeal
+          Welcome to VertexVita
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
@@ -49,7 +49,7 @@ export default function Home() {
           >
             <h2 className="text-2xl font-semibold text-blue-600 mb-4">What it Does</h2>
             <p className="text-gray-700">
-              0G is a decentralized AI-powered healthcare management app that empowers patients and providers with secure, transparent medical record storage, AI-driven diagnostics, and verifiable data sharing via Intelligent NFTs (INFTs) on the 0G blockchain.
+              VertexVita is a decentralized AI-powered healthcare management app that empowers patients and providers with secure, transparent medical record storage, AI-driven diagnostics, and verifiable data sharing via Intelligent NFTs (INFTs) on the 0G blockchain.
             </p>
           </motion.div>
 
@@ -112,7 +112,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white text-center py-6">
-        <p>&copy; {new Date().getFullYear()} AIHeal </p>
+        <p>&copy; {new Date().getFullYear()} VertexVita </p>
         
       </footer>
     </div>

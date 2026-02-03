@@ -1,2 +1,2 @@
-## AIHeal frontend 
+## VertexVita frontend 
  
